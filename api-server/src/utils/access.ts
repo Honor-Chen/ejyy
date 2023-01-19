@@ -48,8 +48,8 @@ export function decrypt(uid: string): DecryptResult {
 
     if (
         (type !== SELF_ACCESS_CODE && type !== VISTOR_ACCESS_CODE) ||
-        building_id === NaN ||
-        id === NaN ||
+        Number.isNaN(building_id) ||
+        Number.isNaN(id) ||
         !/^\d{13}$/.test(stamp.toString())
     ) {
         success = false;

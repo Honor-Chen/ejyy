@@ -78,7 +78,7 @@ export default {
                 name: '',
                 address: [],
                 service_phone: '',
-                banner: '',
+                banner: '/community_banner/22ac898e8e001158ee17335039920b50.jpg',
                 access_nfc: 0,
                 access_qrcode: 0,
                 access_remote: 0,
@@ -95,7 +95,7 @@ export default {
                     { required: true, message: '请输入小区客户电话' },
                     { pattern: /^\d{11}$/, message: '请输入正确的电话号码' }
                 ],
-                banner: [{ required: true, message: '请上传小区照片' }],
+                banner: [{ required: false, message: '请上传小区照片' }],
                 access_nfc: [{ required: true, type: 'number' }],
                 access_qrcode: [{ required: true, type: 'number' }],
                 access_remote: [{ required: true, type: 'number' }],

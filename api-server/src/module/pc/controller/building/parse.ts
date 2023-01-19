@@ -62,7 +62,7 @@ const PcBuildingParseAction = <Action>{
         const { file } = ctx.request.files;
         const { community_id } = <RequestBody>ctx.request.body;
 
-        const sheetData = xlsx.parse((<File>file).path);
+        const sheetData = xlsx.parse((file as any).path);
         const dataIndex = sheetData.findIndex(item => item.name === '固定资产数据');
 
         if (dataIndex < 0) {

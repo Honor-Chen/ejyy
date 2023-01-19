@@ -51,6 +51,9 @@ const PcUserAccountLoginAction = <Action>{
     response: async ctx => {
         const { account, password, captcha } = <RequestBody>ctx.request.body;
 
+        console.log('ctx.session 》》》》', ctx.session);
+        console.log('captcha ：：：：', captcha.toLowerCase());
+
         if (!ctx.session.loginCaptcha || ctx.session.loginCaptcha !== captcha.toLowerCase()) {
             return (ctx.body = {
                 code: CAPTCHA_ERROR,

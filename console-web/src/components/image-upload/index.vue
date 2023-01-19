@@ -93,7 +93,10 @@ export default {
                             const key = `${this.dir}/${img.hash}${img.ext}`;
                             this.result = `/${key}`;
 
+                            console.log('key :>> ', key);
+
                             utils.oss(key).then(res => {
+                                console.log('res :>> ', res);
                                 this.uploadData = res;
                                 resolve();
                             });

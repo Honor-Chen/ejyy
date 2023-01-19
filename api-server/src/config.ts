@@ -105,11 +105,11 @@ function generateConfig(): Config {
     }
 
     const mysqlConfig: Mysql.ConnectionConfig & Knex.ConnectionConfig = {
-        host: '',
+        host: '127.0.0.1',
         port: 3306,
         user: 'root',
-        password: '',
-        database: '',
+        password: 'root',
+        database: 'ejyy',
         ...customConfig.mysql,
         supportBigNumbers: true,
         typeCast: (field, next) => {
@@ -132,7 +132,7 @@ function generateConfig(): Config {
         },
         mysqlConfig,
         redis: {
-            host: '',
+            host: '127.0.0.1',
             port: 6379,
             password: '',
             ...customConfig.redis
@@ -195,7 +195,7 @@ function generateConfig(): Config {
             oss: {
                 bucket: '',
                 region: '',
-                host: ''
+                host: '127.0.0.1'
             },
             ...customConfig.aliyun
         },
@@ -206,7 +206,7 @@ function generateConfig(): Config {
             ...customConfig.crypto
         },
         smtp: {
-            host: '',
+            host: '127.0.0.1',
             port: 465,
             secure: true,
             user: '',

@@ -550,14 +550,17 @@ export default {
                 this.result = `/${key}`;
                 this.uploading = true;
 
+                console.log('key :>> ', key);
+
                 utils.oss(key).then(res => {
+                    console.log('res :>> ', res);
                     for (let prop in res) {
                         fd.append(prop, res[prop]);
                     }
 
                     fd.append('file', file);
 
-                    const xhr = new XMLHttpRequest();
+                    /* const xhr = new XMLHttpRequest();
                     xhr.open('post', res.host, true);
                     xhr.onreadystatechange = () => {
                         if (xhr.readyState !== 4) {
@@ -580,7 +583,15 @@ export default {
                         },
                         false
                     ); //监听进度
-                    xhr.send(fd);
+                    xhr.send(fd); */
+
+                    setTimeout(() => {
+                        this.visible = false;
+                        this.uploading = false;
+                        this.$emit('input', this.result);
+                        this.$emit('on-change', this.result);
+                        this.dispatch('FormItem', 'on-form-change', this.result);
+                    }, 1000);
                 });
             });
         },

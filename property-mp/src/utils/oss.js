@@ -12,7 +12,7 @@
 
 import request from './request';
 
-let accessid = '';
+let accessid = 'LTAI5tL3mpExvdKGirtgzMfX';
 let signature = '';
 let policy = '';
 let dir = '';

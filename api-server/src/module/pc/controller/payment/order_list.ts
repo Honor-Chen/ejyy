@@ -168,8 +168,8 @@ const PcPaymentOrderListAction = <Action>{
             code: SUCCESS,
             data: {
                 list,
-                total: res.total,
-                page_amount: Math.ceil(res.total / page_size),
+                total: (res as any).total,
+                page_amount: Math.ceil((res as any).total / page_size),
                 page_num,
                 page_size,
                 payExpire: confirm.wechat.pay.payExpire
