@@ -23,6 +23,7 @@ export function md5(str: string, upperCase = false): string {
     return upperCase ? ret.toUpperCase() : ret;
 }
 
+// 加密
 export function encrypt(str: string): string {
     const cipher = crypto.createCipheriv('aes-256-cbc', config.crypto.key, config.crypto.iv);
     let crypted = cipher.update(str, 'utf8', 'hex');
@@ -32,6 +33,7 @@ export function encrypt(str: string): string {
     return crypted;
 }
 
+// 解密
 export function decrypt(str: string): string {
     let result = null;
 

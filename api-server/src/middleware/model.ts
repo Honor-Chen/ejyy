@@ -11,7 +11,7 @@
  */
 
 import { Middleware, DefaultState, DefaultContext } from 'koa';
-import Knex from 'knex';
+import Knex from 'knex'; // 可灵活操作 SQL 中间件
 import model from '~/model';
 
 declare module 'koa' {

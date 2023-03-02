@@ -40,7 +40,7 @@ function InitMiddleware(): Middleware<DefaultState, DefaultContext> {
             }
         } else {
             if (isInitAction) {
-                ctx.redirect('https://www.chowa.cn');
+                ctx.redirect('https://www.idspring.cn');
             }
         }
 

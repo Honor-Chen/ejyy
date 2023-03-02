@@ -34,6 +34,7 @@ const PcUserCaptchaAction = <Action>{
             fontSize: 66
         });
 
+        // console.log('验证码 - 出生地：', captcha.text.toLowerCase());
         ctx.session.loginCaptcha = captcha.text.toLowerCase();
 
         ctx.body = {

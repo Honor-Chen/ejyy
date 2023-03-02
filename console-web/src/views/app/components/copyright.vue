@@ -1,7 +1,8 @@
 <template>
     <div class="copyright">
         <a href="https://www.chowa.cn" target="_blank">
-            Copyright &copy; 2020-{{ new Date().getFullYear() }} 内蒙古卓瓦科技有限公司版权所有 All rights reserved。
+            <!-- Copyright &copy; 2020-{{ new Date().getFullYear() }} 内蒙古卓瓦科技有限公司版权所有 All rights reserved。 -->
+            Copyright &copy; 2020-{{ new Date().getFullYear() }} vsouls科技有限公司版权所有 All rights reserved。
         </a>
     </div>
 </template>

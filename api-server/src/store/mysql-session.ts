@@ -41,6 +41,9 @@ class MysqlSessionStore {
             .where('expire', '>', Date.now())
             .first();
 
+        // 查看 session
+        // console.log('MysqlSessionStore - get - row :>> ', row);
+
         let session = <Session>null;
 
         if (row && row.data) {
@@ -53,6 +56,9 @@ class MysqlSessionStore {
     async set(sid: string, session: Session, ttl: number) {
         let expire = getExpiresOn(session, ttl).valueOf();
         let data = JSON.stringify(session);
+
+        // 设置 session
+        // console.log('MysqlSessionStore - set - data :>> ', data);
 
         await model.raw(
             'INSERT INTO ejyy_session_store (id, expire, data) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE expire=?, data =?',

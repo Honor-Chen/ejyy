@@ -28,6 +28,7 @@ function PcModule(appRouter: KoaRouter) {
         const { router, validator, response } = <Action>PcModuleRouter[name];
 
         appRouter[router.method](path.posix.join('/pc', router.path), async (ctx: Context, next) => {
+            // !：是否必须授权
             if (router.authRequired) {
                 const token = ctx.request.header['ejyy-pc-token'];
 
@@ -122,9 +123,10 @@ function PcModule(appRouter: KoaRouter) {
             await response.apply(this, [ctx, next]);
         });
 
-        if (config.debug) {
+        // 若是开发模式，需要将服务初始化日志打印出来
+        /* if (config.debug) {
             cwlog.info(`${name} mounted and request from ${path.posix.join('/pc', router.path)} by ${router.method}`);
-        }
+        } */
     }
 }
 

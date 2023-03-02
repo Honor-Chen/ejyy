@@ -10,23 +10,27 @@
  * +----------------------------------------------------------------------
  */
 
-import 'module-alias/register';
+import 'module-alias/register'; // !：插件：设置模块别名
 import Koa from 'koa';
-import KoaRouter from 'koa-router';
-import KoaBodyMiddleware from 'koa-body';
+import KoaRouter from 'koa-router'; // 路由中间件
+import KoaBodyMiddleware from 'koa-body'; // 解析 body parse
 import KoaSessionMilddleware from 'koa-session';
 import KoaLogMiddleware from 'koa-logger';
-import MysqlSessionStore from '~/store/mysql-session';
 import http from 'http';
-import cwlog from 'chowa-log';
+import cwlog from 'chowa-log'; // 日志提示信息的级别
+
+import MysqlSessionStore from '~/store/mysql-session';
 import config from '~/config';
 import * as ScheduleJob from '~/schedule';
+
 import MpModule from '~/module/mp';
-import PcModule from '~/module/pc';
+import PcModule from '~/module/pc'; // 获取到 PC 下的所有路由信息
 import NotifyModule from '~/module/notify';
 import OaModule from '~/module/oa';
+
 import wss from '~/wss';
 import * as redisService from '~/service/redis';
+
 import ModelMiddleware from '~/middleware/model';
 import IpMiddleware from '~/middleware/ip';
 import HeaderMiddleware from '~/middleware/header';

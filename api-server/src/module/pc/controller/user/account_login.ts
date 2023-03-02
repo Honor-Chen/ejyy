@@ -51,8 +51,8 @@ const PcUserAccountLoginAction = <Action>{
     response: async ctx => {
         const { account, password, captcha } = <RequestBody>ctx.request.body;
 
-        console.log('ctx.session 》》》》', ctx.session);
-        console.log('captcha ：：：：', captcha.toLowerCase());
+        console.log('serve端 - 验证码：', ctx.session);
+        // console.log('web端 - 验证码：', captcha.toLowerCase());
 
         if (!ctx.session.loginCaptcha || ctx.session.loginCaptcha !== captcha.toLowerCase()) {
             return (ctx.body = {

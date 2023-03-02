@@ -10,7 +10,7 @@
  * +----------------------------------------------------------------------
  */
 
-import Knex from 'knex';
+import Knex from 'knex'; // 可灵活操作 SQL 中间件
 import config from '~/config';
 
 const model = Knex({

@@ -10,9 +10,9 @@
  * +----------------------------------------------------------------------
  */
 
-import schedule from 'node-schedule';
+import schedule from 'node-schedule'; // NodeJS 中的定时任务
 import moment from 'moment';
-import Knex from 'knex';
+import Knex from 'knex'; // 参考：https://blog.csdn.net/qq_40358032/article/details/120451244
 import config from '~/config';
 import { SESSION_JOB } from '~/constant/schedule';
 import cwlog from 'chowa-log';

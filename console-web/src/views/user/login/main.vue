@@ -1,13 +1,13 @@
 <template>
     <section class="login">
         <div class="login-form">
-            <div class="logo">
+            <!-- <div class="logo">
                 <img src="../../../assets/logo.svg" alt="logo" class="img-logo" />
                 <div class="title">
                     <img src="../../../assets/logo_txt.svg" alt="e家宜业" class="text-logo" />
                     <h1><a href="https://github.com/chowa/ejyy" target="_blank">卓瓦科技开源产品</a></h1>
                 </div>
-            </div>
+            </div> -->
 
             <h2 class="slogan">助力物业服务升级，用心服务万千业主</h2>
 
