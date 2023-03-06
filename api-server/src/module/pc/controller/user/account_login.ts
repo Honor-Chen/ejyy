@@ -10,6 +10,11 @@
  * +----------------------------------------------------------------------
  */
 
+/**
+ * 页面初始化接口调用顺序：
+ *  先获取验证码接口，再获取 state 接口数据？？？
+ */
+
 import { Action } from '~/types/action';
 import { SUCCESS, CAPTCHA_ERROR, PWD_ERROR } from '~/constant/code';
 import { FALSE } from '~/constant/status';
@@ -54,7 +59,12 @@ const PcUserAccountLoginAction = <Action>{
         console.log('serve端 - 验证码：', ctx.session);
         // console.log('web端 - 验证码：', captcha.toLowerCase());
 
-        if (!ctx.session.loginCaptcha || ctx.session.loginCaptcha !== captcha.toLowerCase()) {
+        if (!ctx.session.loginCaptcha) {
+            return (ctx.body = {
+                code: CAPTCHA_ERROR,
+                message: '验证码过期'
+            });
+        } else if (ctx.session.loginCaptcha !== captcha.toLowerCase()) {
             return (ctx.body = {
                 code: CAPTCHA_ERROR,
                 message: '验证码错误'

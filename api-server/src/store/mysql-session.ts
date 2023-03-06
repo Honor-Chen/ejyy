@@ -58,8 +58,11 @@ class MysqlSessionStore {
         let data = JSON.stringify(session);
 
         // 设置 session
-        // console.log('MysqlSessionStore - set - data :>> ', data);
+        // console.log('MysqlSessionStore - set - data :>> ', { sid, expire, data });
+        // console.log('MysqlSessionStore - set - session :>> ', sid, session, ttl);
+        // console.log('expire :>> ', expire);
 
+        // 若 ejyy_session_store 表中没有 id 为 sid 的数据，则新建插入；若有则修改，id 不变
         await model.raw(
             'INSERT INTO ejyy_session_store (id, expire, data) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE expire=?, data =?',
             [sid, expire, data, expire, data]

@@ -24,10 +24,10 @@ const PcUserCaptchaAction = <Action>{
 
     response: async ctx => {
         const captcha = svgCaptcha.create({
-            size: 4,
-            ignoreChars: '0o1il',
-            noise: 1,
-            color: true,
+            size: 4, // 验证码个数
+            ignoreChars: '0o1il', // 验证码中排除的字符
+            noise: 1, // 干扰的线条数量
+            color: true, // 验证码的字符是否有颜色，默认没有，如果设定了背景，则默认有
             background: '#fff',
             height: 72,
             width: 240,

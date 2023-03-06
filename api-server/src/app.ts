@@ -19,6 +19,8 @@ import KoaLogMiddleware from 'koa-logger';
 import http from 'http';
 import cwlog from 'chowa-log'; // 日志提示信息的级别
 
+import RedisSessionStore from '~/store/redis-session'; // 自己实现的 验证码 过期逻辑
+
 import MysqlSessionStore from '~/store/mysql-session';
 import config from '~/config';
 import * as ScheduleJob from '~/schedule';
@@ -59,6 +61,8 @@ wss.init(server);
 // for socket
 redisService.subscribe();
 
+console.log('***************************', { ...config.session }, '***************************');
+
 app.use(KoaBodyMiddleware({ multipart: true }))
     .use(
         KoaLogMiddleware({
@@ -69,9 +73,13 @@ app.use(KoaBodyMiddleware({ multipart: true }))
     )
     .use(
         KoaSessionMilddleware(
-            {
+            /* {
                 store: new MysqlSessionStore(),
-                ...config.session
+                ...config.session // { key: 'ejyy:session', maxAge: 1800000, signed: false }
+            }, */
+            {
+                store: new RedisSessionStore(),
+                ...config.session // { key: 'ejyy:session', maxAge: 1800000, signed: false }
             },
             app
         )

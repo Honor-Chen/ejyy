@@ -177,6 +177,20 @@ function generateConfig(): Config {
             key: '',
             ...customConfig.map
         },
+        /*
+            koa-session(config, app)
+            {
+                key: cookie key (default is koa:sess)
+                maxAge: cookie 的过期时间 maxAge in ms (default is 1 days)
+                signed: 签名是否开启，default true
+                overwrite: 是否可以overwrite (默认default true)
+                httpOnly: cookie是否只有服务器端可以访问 httpOnly or not (default true)
+                rolling: 在每次请求时强行设置cookie，这将重置cookie过期时间（default false）
+                renew: 当 session 快过期时，是否重写 default is false
+
+                store: new sessionStore(redis) // 有 store；无 store
+            }
+        */
         session: {
             key: 'ejyy:session',
             maxAge: 1000 * 60 * 30,

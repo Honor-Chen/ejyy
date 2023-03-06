@@ -29,6 +29,13 @@ function validatorService(ctx: Context, validatorDeclare: ValidatorDeclare): Val
 
     const fileds: FieldVeirfy[] = [];
 
+    /*
+        body: ctx.request.body 对象参数
+        params: ctx.request.params 路径参数
+        query: ctx.request.query 请求参数
+        files: ctx.request.files 文件参数
+        header: ctx.request.header 头参数
+    */
     ['body', 'params', 'query', 'files'].forEach((refer: 'body' | 'params' | 'query' | 'files') => {
         if (!Array.isArray(validatorDeclare[refer])) {
             return;
