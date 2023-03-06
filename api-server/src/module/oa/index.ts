@@ -28,9 +28,9 @@ async function OaModule(appRouter: KoaRouter) {
             await response.apply(this, [ctx, next]);
         });
 
-        if (config.debug) {
+        /* if (config.debug) {
             cwlog.info(`${name} mounted and request from ${path.posix.join('/oa', router.path)} by ${router.method}`);
-        }
+        } */
     }
 
     const { errmsg } = await wechatService.createOaMenu(menu);

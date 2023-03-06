@@ -26,11 +26,11 @@ function MpModule(appRouter: KoaRouter) {
             await response.apply(this, [ctx, next]);
         });
 
-        if (config.debug) {
+        /* if (config.debug) {
             cwlog.info(
                 `${name} mounted and request from ${path.posix.join('/notify', router.path)} by ${router.method}`
             );
-        }
+        } */
     }
 }
 
